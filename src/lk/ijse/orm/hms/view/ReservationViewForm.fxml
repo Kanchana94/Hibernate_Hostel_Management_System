@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane fx:id="ReservationDetails" prefHeight="548.0" prefWidth="1100.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.orm.hms.controller.ReservationViewFormController">
+   <children>
+      <Pane prefHeight="548.0" prefWidth="1100.0" style="-fx-background-color: #dfe6e9;">
+         <children>
+            <Pane layoutX="5.0" layoutY="7.0" prefHeight="75.0" prefWidth="1090.0" style="-fx-background-radius: 0; -fx-background-color: #b2bec3; -fx-border-color: black;">
+               <children>
+                  <Text fill="WHITE" layoutX="399.0" layoutY="47.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Reservation Details">
+                     <font>
+                        <Font name="System Bold Italic" size="36.0" />
+                     </font>
+                  </Text>
+               </children>
+            </Pane>
+            <TextField fx:id="txtStudentname" layoutX="469.0" layoutY="148.0" prefHeight="30.0" prefWidth="250.0" style="-fx-background-color: #F2ECDA; -fx-border-color: black;" />
+            <Label alignment="CENTER" layoutX="362.0" layoutY="147.0" prefHeight="32.0" prefWidth="96.0" text="Std_Name">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" layoutX="728.0" layoutY="145.0" prefHeight="32.0" prefWidth="110.0" text="Qty_Of_Room">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <TextField fx:id="txtRoomtype" layoutX="469.0" layoutY="187.0" prefHeight="30.0" prefWidth="250.0" style="-fx-background-color: #F2ECDA; -fx-border-color: black;" />
+            <Label alignment="CENTER" layoutX="366.0" layoutY="183.0" prefHeight="32.0" prefWidth="96.0" text="Room_Type">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <TextField fx:id="txtQtyOfroom" layoutX="844.0" layoutY="148.0" prefHeight="30.0" prefWidth="250.0" style="-fx-background-color: #F2ECDA; -fx-border-color: black;" />
+            <Pane layoutX="820.0" layoutY="295.0" prefHeight="250.0" prefWidth="276.0" style="-fx-background-color: #b2bec3; -fx-border-color: black;">
+               <children>
+                  <JFXButton layoutX="80.0" layoutY="61.0" onAction="#ReserveOnAction" prefHeight="30.0" prefWidth="120.0" style="-fx-background-color: #27ae60; -fx-background-radius: 50px; -fx-border-radius: 50px; -fx-border-color: black;" text="Reserve" textFill="WHITE">
+                     <font>
+                        <Font name="Impact" size="18.0" />
+                     </font>
+                  </JFXButton>
+                  <JFXButton layoutX="80.0" layoutY="159.0" onAction="#updateOnAction" prefHeight="30.0" prefWidth="120.0" style="-fx-background-color: #e84118; -fx-background-radius: 50px; -fx-border-color: black; -fx-border-radius: 50px;" text="Update" textFill="#fffbfb">
+                     <font>
+                        <Font name="Impact" size="18.0" />
+                     </font>
+                  </JFXButton>
+               </children>
+            </Pane>
+            <Label alignment="CENTER" layoutX="729.0" layoutY="183.0" prefHeight="32.0" prefWidth="96.0" text="Key_Money">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <TextField fx:id="txtKeymoney" layoutX="844.0" layoutY="187.0" prefHeight="30.0" prefWidth="250.0" style="-fx-background-color: #F2ECDA; -fx-border-color: black;" />
+            <ComboBox fx:id="cmbStudentId" layoutX="104.0" layoutY="146.0" prefHeight="30.0" prefWidth="250.0" />
+            <ComboBox fx:id="cmbRoomId" layoutX="103.0" layoutY="188.0" prefHeight="30.0" prefWidth="250.0" />
+            <JFXButton fx:id="btnAddToRemain" layoutX="820.0" layoutY="251.0" onAction="#AddToRemainOnAction" prefHeight="40.0" prefWidth="275.0" style="-fx-background-color: #f1c40f; -fx-border-color: black;" text="View  Remain Key-money Student">
+               <font>
+                  <Font name="Impact" size="16.0" />
+               </font>
+            </JFXButton>
+            <Text fx:id="lblRoomId" layoutX="915.0" layoutY="29.0" strokeType="OUTSIDE" strokeWidth="0.0" text="RM-1324">
+               <font>
+                  <Font name="Impact" size="18.0" />
+               </font>
+            </Text>
+            <Text fx:id="lblRoomType" layoutX="875.0" layoutY="52.0" strokeType="OUTSIDE" strokeWidth="0.0" text="AC" textAlignment="CENTER" wrappingWidth="146.50195664912462">
+               <font>
+                  <Font name="Impact" size="18.0" />
+               </font>
+            </Text>
+            <Label fx:id="lblRoomQty" alignment="CENTER" layoutX="898.0" layoutY="53.0" prefHeight="18.0" prefWidth="99.0" textFill="#751414">
+               <font>
+                  <Font name="Impact" size="18.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <TableView fx:id="tblReservation" layoutX="5.0" layoutY="295.0" onMouseClicked="#reservationTableClicked" prefHeight="250.0" prefWidth="811.0" style="-fx-background-color: #b2bec3; -fx-border-color: black;">
+         <columns>
+            <TableColumn fx:id="colReservationID" prefWidth="112.0" text="Reservation ID" />
+            <TableColumn fx:id="colRoomId" prefWidth="111.0" style="fx-border-colour: red;" text="Room ID" />
+            <TableColumn fx:id="colRoomType" prefWidth="132.0" text="Room Type" />
+            <TableColumn fx:id="colStudentQty" prefWidth="85.0" text="QTY" />
+            <TableColumn fx:id="colKeyMny" prefWidth="89.0" text="Key Money" />
+            <TableColumn fx:id="colStatus" prefWidth="124.0" text="Status" />
+            <TableColumn fx:id="colDelete" prefWidth="141.0" text="Delete" />
+         </columns>
+      </TableView>
+      <TextField fx:id="txtStatus" layoutX="25.0" layoutY="260.0" prefHeight="30.0" prefWidth="250.0" promptText="Status" />
+      <TextField fx:id="txtStudentQty" layoutX="317.0" layoutY="260.0" prefHeight="30.0" prefWidth="250.0" promptText=" Qty" />
+      <Text layoutX="7.0" layoutY="111.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Reservation ID :" wrappingWidth="128.501953125">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+      <Label fx:id="lblReserveID" alignment="CENTER" layoutX="151.0" layoutY="93.0" prefHeight="30.0" prefWidth="250.0">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Label>
+      <Text layoutX="10.0" layoutY="166.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Student  ID   " wrappingWidth="128.501953125">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+      <Text layoutX="10.0" layoutY="210.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Room  ID      " wrappingWidth="128.501953125">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+      <Line endX="971.0" layoutX="129.0" layoutY="238.0" startX="-129.0" stroke="WHITE" />
+      <Line endX="972.0" layoutX="128.0" layoutY="127.0" startX="-129.0" stroke="WHITE" />
+   </children>
+</AnchorPane>
